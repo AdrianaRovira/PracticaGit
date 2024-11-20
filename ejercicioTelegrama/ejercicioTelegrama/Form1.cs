@@ -20,16 +20,25 @@ namespace ejercicioTelegrama
         private void button1_Click(object sender, EventArgs e)
         {
             string textoTelegrama;
-            char tipoTelegrama = 'o';
+            char tipoTelegrama = 'x';
             int numPalabras = 0;
             double coste;
+
             //Leo el telegrama
             textoTelegrama = txtTelegrama.Text;
             // telegrama urgente?
-            if (chkUrgente.Checked)
+            if (radioUrgente.Checked)
             {
                 tipoTelegrama = 'u';
+
+
             }
+
+            if (radioOrdinario.Checked)
+            {
+                tipoTelegrama = 'o';
+            }
+
             //Obtengo el número de palabras que forma el telegrama
             //Añado el método String.Split para que cree un array
             //de strings que contenga las palabras del telegrama.
@@ -52,8 +61,11 @@ namespace ejercicioTelegrama
                     //y calcular las palabras que pasaran de 10 x 0.5
                     coste = 2.5 + 0.5 * (numPalabras - 10);
                 }
+                txtPrecio.Text = coste.ToString() + " euros";
             }
-            else
+            else if(tipoTelegrama == 'u')
+            {
+
             //Si el telegrama es urgente
             //He quitado de aquí un if que no tenía sentido.
                 if (numPalabras <= 10)
@@ -65,6 +77,13 @@ namespace ejercicioTelegrama
                 coste = 5 + 0.75 * (numPalabras - 10);
             }
             txtPrecio.Text = coste.ToString() + " euros";
+
+
+            } else
+            {
+                MessageBox.Show("tienes que marcar una opción ");
+            }
+
         }
     }
 }

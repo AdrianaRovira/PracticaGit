@@ -30,8 +30,6 @@ namespace ejercicioTelegrama
             if (radioUrgente.Checked)
             {
                 tipoTelegrama = 'u';
-
-
             }
 
             if (radioOrdinario.Checked)
@@ -53,13 +51,13 @@ namespace ejercicioTelegrama
             {
                 if (numPalabras <= 10)
                 {
-                    coste = 2.5;
+                    coste = 3;
                 }
                 else
                 {
                     //Aquí faltaba el coste base
                     //y calcular las palabras que pasaran de 10 x 0.5
-                    coste = 2.5 + 0.5 * (numPalabras - 10);
+                    coste = 3 + 0.5 * (numPalabras - 10);
                 }
                 txtPrecio.Text = coste.ToString() + " euros";
             }
@@ -70,11 +68,11 @@ namespace ejercicioTelegrama
             //He quitado de aquí un if que no tenía sentido.
                 if (numPalabras <= 10)
             {
-                coste = 5;
+                coste = 6;
             }
             else
             {
-                coste = 5 + 0.75 * (numPalabras - 10);
+                coste = 6 + 0.75 * (numPalabras - 10);
             }
             txtPrecio.Text = coste.ToString() + " euros";
 
